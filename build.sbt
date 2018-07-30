@@ -17,7 +17,10 @@ lazy val cassandraTest =
         library.circeParser,
         library.circeJ8,
         library.enumeratum,
-        library.enumeratumCirce
+        library.enumeratumCirce,
+        library.akkaHttp,
+        library.akkaStream,
+        library.akkaHttpTestKit % Test
       )
     )
 
@@ -34,6 +37,8 @@ lazy val library =
       val ficus         = "1.4.3"
       val enumeratum    = "1.5.13"
       val circe         = "0.9.3"
+      val akkaHttp      = "10.1.3"
+      val akkaStream    = "2.5.12"
     }
     val quillCassandra = "io.getquill" %% "quill-cassandra" % Version.quill
 
@@ -44,6 +49,10 @@ lazy val library =
     val circeGeneric = "io.circe" %% "circe-generic" % Version.circe
     val circeParser  = "io.circe" %% "circe-parser"  % Version.circe
     val circeJ8      = "io.circe" %% "circe-java8"   % Version.circe
+
+    val akkaHttp     = "com.typesafe.akka" %% "akka-http"  % Version.akkaHttp
+    val akkaStream   = "com.typesafe.akka" %% "akka-stream" % Version.akkaStream
+    val akkaHttpTestKit = "com.typesafe.akka" %% "akka-http-testkit" % Version.akkaHttp
 
     val scalaCheck = "org.scalacheck" %% "scalacheck" % Version.scalaCheck
     val scalaTest  = "org.scalatest"  %% "scalatest"  % Version.scalaTest

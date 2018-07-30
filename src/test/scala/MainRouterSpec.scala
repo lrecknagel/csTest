@@ -14,6 +14,18 @@
  * limitations under the License.
  */
 
-package default.cassandratest.http
+import akka.http.scaladsl.testkit.ScalatestRouteTest
+import default.cassandratest.http.MainRouter
+import org.scalatest.{ FreeSpec, MustMatchers }
 
-class Router {}
+class MainRouterSpec extends FreeSpec with MustMatchers with ScalatestRouteTest {
+
+  val helloRoute = new MainRouter().helloRoute
+
+  "must respond with Hello World" in {
+    Get(s"/hello") ~> helloRoute ~> check {
+      println(responseAs[String])
+    }
+  }
+
+}
